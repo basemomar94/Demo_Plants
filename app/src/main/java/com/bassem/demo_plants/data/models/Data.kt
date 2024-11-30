@@ -1,5 +1,9 @@
 package com.bassem.demo_plants.data.models
 
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+
+@Entity
 data class Data(
     val author: String,
     val bibliography: String,
@@ -8,13 +12,12 @@ data class Data(
     val family_common_name: String,
     val genus: String,
     val genus_id: Int,
+    @PrimaryKey
     val id: Int,
     val image_url: String,
-    val links: Links,
     val rank: String,
     val scientific_name: String,
     val slug: String,
     val status: String,
-    val synonyms: List<String>,
     val year: Int
 )
