@@ -19,7 +19,7 @@ fun HomeScreen(modifier: Modifier = Modifier) {
         navigator = navigator,
         listPane = {
             AnimatedPane {
-                PropertiesListScreen(modifier = modifier, onClick = { plant ->
+                PlantsListScreen(modifier = modifier, onClick = { plant ->
                     navigator.navigateTo(
                         pane = ListDetailPaneScaffoldRole.Detail,
                         content = plant
