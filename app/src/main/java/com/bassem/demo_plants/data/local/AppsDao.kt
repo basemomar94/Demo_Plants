@@ -10,7 +10,7 @@ import com.bassem.demo_plants.data.models.Data
 interface AppsDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertAllPlants(catsList: List<Data>)
+    fun insertAllPlants(plants: List<Data>)
 
     @Query("DELETE FROM data")
     fun deleteAllPlants()
