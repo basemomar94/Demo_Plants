@@ -4,6 +4,8 @@ import android.content.Context
 import com.bassem.demo_plants.R
 import com.bassem.demo_plants.data.local.AppsDao
 import com.bassem.demo_plants.data.models.Result
+import com.bassem.demo_plants.data.remote.ApiService
+import com.bassem.demo_plants.data.remote.TOKEN
 import com.bassem.demo_plants.domain.usecases.FetchPlantsUseCase
 import com.bassem.demo_plants.utils.Logger
 import com.google.gson.JsonParseException
@@ -18,7 +20,7 @@ import javax.inject.Inject
 
 class PlantsRepoImpl @Inject constructor(
     @ApplicationContext private val context: Context,
-    private val useCase: FetchPlantsUseCase,
+    private val apiService: ApiService,
     private val dao: AppsDao
 ) : PlantsRepo {
     private val logger = Logger("PlantsRepoImpl")
@@ -31,7 +33,7 @@ class PlantsRepoImpl @Inject constructor(
         var localPlants = withContext(Dispatchers.IO) { dao.getAllPlants() }
 
         try {
-            val remoteBreeds = useCase().data
+            val remoteBreeds = apiService.getPlants(TOKEN).data
 
             withContext(Dispatchers.IO) {
                 dao.deleteAllPlants()
