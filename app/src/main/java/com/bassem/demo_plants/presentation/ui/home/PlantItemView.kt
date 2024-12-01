@@ -1,6 +1,7 @@
 package com.bassem.demo_plants.presentation.ui.home
 
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -53,10 +54,10 @@ private fun PlantItemCompose(
             .shadow(
                 elevation = dimensionResource(
                     id = R.dimen.small_padding,
-                ), shape = RoundedCornerShape(8.dp)
+                ), shape = RoundedCornerShape(dimensionResource(R.dimen.card_corner_radius))
             )
     ) {
-        Box(
+        Column (
             modifier = modifier
                 .fillMaxWidth()
         ) {
