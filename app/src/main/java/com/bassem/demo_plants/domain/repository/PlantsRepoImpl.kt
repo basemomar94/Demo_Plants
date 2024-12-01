@@ -3,6 +3,7 @@ package com.bassem.demo_plants.domain.repository
 import android.content.Context
 import com.bassem.demo_plants.R
 import com.bassem.demo_plants.data.local.AppsDao
+import com.bassem.demo_plants.data.models.Data
 import com.bassem.demo_plants.data.models.Result
 import com.bassem.demo_plants.data.remote.ApiService
 import com.bassem.demo_plants.data.remote.TOKEN
@@ -32,19 +33,23 @@ class PlantsRepoImpl @Inject constructor(
         var localPlants = withContext(Dispatchers.IO) { dao.getAllPlants() }
 
         try {
-            val remoteBreeds = apiService.getPlants(TOKEN).data
+            val remotePlants = apiService.getPlants(TOKEN).data
 
             withContext(Dispatchers.IO) {
                 dao.deleteAllPlants()
-                dao.insertAllPlants(remoteBreeds)
-                localPlants = dao.getAllPlants()
+                logger.d("remote plants $remotePlants")
+                if (remotePlants.isNotEmpty()) {
+                    dao.insertAllPlants(remotePlants)
+                    localPlants = dao.getAllPlants()
+                }
+
             }
 
-            emit(Result.Success(localPlants))
+            emit(Result.Success(remotePlants))
 
 
         } catch (e: Exception) {
-            logger.e("Unexpected error: ${e.message}")
+            logger.e("error on fetching plants: ${e.message}")
             if (localPlants.isEmpty()) {
                 emit(Result.Fail(context.getExceptionMessage(e)))
             } else {
