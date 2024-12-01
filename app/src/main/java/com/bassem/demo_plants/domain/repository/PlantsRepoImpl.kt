@@ -6,7 +6,6 @@ import com.bassem.demo_plants.data.local.AppsDao
 import com.bassem.demo_plants.data.models.Result
 import com.bassem.demo_plants.data.remote.ApiService
 import com.bassem.demo_plants.data.remote.TOKEN
-import com.bassem.demo_plants.domain.usecases.FetchPlantsUseCase
 import com.bassem.demo_plants.utils.Logger
 import com.google.gson.JsonParseException
 import dagger.hilt.android.qualifiers.ApplicationContext
