@@ -22,7 +22,6 @@ fun PlantsListScreen(
 ) {
     val logger = Logger("HomeScreen")
     val result by viewModel.plantsList.collectAsState(initial = Result.Loading)
-
     Column(
         modifier = modifier
             .fillMaxSize()
