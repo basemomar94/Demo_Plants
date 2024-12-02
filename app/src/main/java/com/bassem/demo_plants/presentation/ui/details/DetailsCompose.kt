@@ -1,11 +1,8 @@
 package com.bassem.demo_plants.presentation.ui.details
 
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
@@ -20,6 +17,7 @@ import com.bassem.demo_plants.R
 import com.bassem.demo_plants.data.models.Data
 import com.bassem.demo_plants.presentation.ui.home.PlantName
 import com.bassem.demo_plants.presentation.ui.shared.PlantImage
+import com.bassem.demo_plants.utils.getFormattedIndex
 
 @Preview
 @Composable
@@ -37,7 +35,7 @@ fun DetailsScreen(
             plantName = common_name,
             image = image_url,
             family = family,
-            index = "$id",
+            formattedIndex = plant.getFormattedIndex(),
             author = author
         )
     }
@@ -50,7 +48,7 @@ fun DetailsCompose(
     plantName: String,
     image: String,
     family: String,
-    index: String,
+    formattedIndex: String,
     author: String,
     modifier: Modifier = Modifier,
 ) {
@@ -71,7 +69,7 @@ fun DetailsCompose(
         Spacer(modifier = Modifier.height(dimensionResource(R.dimen.default_padding)))
 
         DetailsText(stringResource(R.string.family), family)
-        DetailsText(stringResource(R.string.index), index)
+        DetailsText(stringResource(R.string.index), formattedIndex)
         DetailsText(stringResource(R.string.author), author)
         Text(text = stringResource(R.string.more_details), modifier = modifier.clickable {
 

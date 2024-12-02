@@ -6,8 +6,8 @@ import androidx.room.PrimaryKey
 @Entity
 data class Data(
     val author: String = "",
-    val bibliography: String = "",
-    val common_name: String = "",
+    val bibliography: String = "N/A",
+    val common_name: String = "N/A",
     val family: String = "",
     val genus: String = "",
     val genus_id: Int = 0,
@@ -16,8 +16,8 @@ data class Data(
     var id: Int,
     val image_url: String = "",
     val rank: String = "",
-    val scientific_name: String = "",
+    val scientific_name: String = "N/A",
     val slug: String = "",
     val status: String = "",
-    val year: Int = 0
+    val year: Int = -1
 )
