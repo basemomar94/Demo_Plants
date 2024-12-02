@@ -40,6 +40,30 @@ android {
     buildFeatures {
         compose = true
     }
+    packaging {
+        resources {
+            excludes += "/META-INF/{AL2.0,LGPL2.1}"
+        }
+    }
+    tasks.withType<Test> {
+        useJUnitPlatform()
+    }
+    testOptions {
+        packaging {
+            resources.excludes.add("META-INF/*")
+        }
+        managedDevices {
+            devices {
+                maybeCreate<com.android.build.api.dsl.ManagedVirtualDevice>("pixel2api27").apply {
+                    device = "Pixel 2"
+                    apiLevel = 27
+                    systemImageSource = "aosp"
+                }
+            }
+        }
+        unitTests.isReturnDefaultValues = true
+
+    }
 }
 
 dependencies {
