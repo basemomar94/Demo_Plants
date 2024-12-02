@@ -18,7 +18,7 @@ private fun PropertyImagePreview() {
 
 @OptIn(ExperimentalGlideComposeApi::class)
 @Composable
-fun PlantImage(imageUrl: String?, modifier: Modifier=Modifier) {
+fun PlantImage(imageUrl: String?, modifier: Modifier = Modifier) {
     GlideImage(
         model = imageUrl,
         contentDescription = stringResource(id = R.string.plant_image),
@@ -26,6 +26,9 @@ fun PlantImage(imageUrl: String?, modifier: Modifier=Modifier) {
         contentScale = ContentScale.Crop,
         loading = placeholder({
             LoadingIndicator()
-        }),
-        )
+        }
+
+        ),
+        failure = placeholder({R.drawable.error})
+    )
 }
