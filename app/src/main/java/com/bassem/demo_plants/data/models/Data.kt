@@ -18,6 +18,6 @@ data class Data(
     val rank: String = "",
     val scientific_name: String = "N/A",
     val slug: String = "",
-    val status: String = "",
+    val status: String = "N/A",
     val year: Int = -1
 )

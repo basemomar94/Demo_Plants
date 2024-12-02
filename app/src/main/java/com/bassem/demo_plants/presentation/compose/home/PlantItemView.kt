@@ -2,11 +2,16 @@ package com.bassem.demo_plants.presentation.compose.home
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Card
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -16,7 +21,6 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import com.bassem.demo_plants.R
 import com.bassem.demo_plants.data.models.Data
-import com.bassem.demo_plants.presentation.compose.details.DetailsText
 import com.bassem.demo_plants.presentation.compose.shared.PlantImage
 import com.bassem.demo_plants.utils.getYear
 
@@ -28,6 +32,7 @@ private fun PreviewPlantItemView() {
         name = "Sphinx Hotel",
         imageUrl = "",
         year = -1,
+        status = "valid",
         onCardClick = {},
     )
 }
@@ -39,7 +44,8 @@ fun PlantItemView(plant: Data, onCardClick: () -> Unit) {
             name = common_name,
             imageUrl = image_url,
             onCardClick = onCardClick,
-            year = year
+            year = year,
+            status = status
         )
     }
 
@@ -50,6 +56,7 @@ private fun PlantItemCompose(
     name: String,
     imageUrl: String?,
     year: Int,
+    status: String,
     onCardClick: () -> Unit,
     modifier: Modifier = Modifier
 ) {
@@ -58,31 +65,48 @@ private fun PlantItemCompose(
         modifier = modifier
             .padding(dimensionResource(id = R.dimen.card_side_margin))
             .shadow(
-                elevation = dimensionResource(
-                    id = R.dimen.small_padding,
-                ), shape = RoundedCornerShape(dimensionResource(R.dimen.card_corner_radius))
+                elevation = dimensionResource(id = R.dimen.small_padding),
+                shape = RoundedCornerShape(dimensionResource(R.dimen.card_corner_radius))
             )
     ) {
-        Column(
+        Row(
             modifier = modifier
                 .fillMaxWidth()
+                .padding(dimensionResource(id = R.dimen.default_padding))
         ) {
-            Box {
+            Box(
+                modifier = modifier
+                    .size(dimensionResource(id = R.dimen.image_height))
+            ) {
                 PlantImage(
-                    imageUrl = imageUrl, modifier = modifier
+                    imageUrl = imageUrl,
+                    modifier = Modifier
                         .fillMaxWidth()
-                        .height(
-                            dimensionResource(id = R.dimen.image_height)
-                        )
                 )
-                Column(modifier = modifier.align(Alignment.BottomCenter)) {
-                    DetailsText(stringResource(R.string.year), year.getYear())
-
-                }
             }
-            PlantName(name)
+
+            Spacer(modifier = Modifier.width(dimensionResource(id = R.dimen.default_padding)))
+
+            Column(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .align(Alignment.CenterVertically)
+            ) {
+                Text(
+                    text = name,
+                    style = MaterialTheme.typography.bodyLarge,
+                    modifier = Modifier.padding(bottom = dimensionResource(id = R.dimen.small_padding))
+                )
+                Text(
+                    text = "${stringResource(R.string.year)}: ${year.getYear()}",
+                    style = MaterialTheme.typography.bodyMedium,
+                    modifier = Modifier.padding(bottom = dimensionResource(id = R.dimen.small_padding))
+                )
+                Text(
+                    text = "${stringResource(R.string.status)}: $status",
+                    style = MaterialTheme.typography.bodyLarge
+                )
+            }
         }
     }
-
-
 }
