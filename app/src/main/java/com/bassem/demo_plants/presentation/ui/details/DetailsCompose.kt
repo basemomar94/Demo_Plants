@@ -39,9 +39,7 @@ fun DetailsScreen(
             family = family,
             index = "$id",
             author = author
-
         )
-
     }
 
 
@@ -64,6 +62,7 @@ fun DetailsCompose(
     ) {
         PlantImage(
             imageUrl = image,
+            modifier = modifier.height(dimensionResource(R.dimen.details_image_height))
         )
         PlantName(
             name = plantName,
