@@ -1,4 +1,4 @@
-package com.bassem.demo_plants.viewmodelstests
+package com.bassem.demo_plants.viewmodel
 
 import com.bassem.demo_plants.data.models.Result
 import com.bassem.demo_plants.BaseTest
@@ -27,7 +27,7 @@ class HomeViewModelTest : BaseTest() {
     }
 
     @Test
-    fun fetchBreedsList_emits_loading_state_before_fetching_data() = runTest {
+    fun fetchPlantsList_emits_loading_state_before_fetching_data() = runTest {
         val loadingState = Result.Loading
 
         coEvery { mockUseCase() } returns flowOf(loadingState)
@@ -45,7 +45,7 @@ class HomeViewModelTest : BaseTest() {
 
 
     @Test
-    fun fetchBreedsList_updates_breedsList_with_fetched_results() = runTest {
+    fun fetchPlantsList_updates_PlantsList_with_fetched_results() = runTest {
 
 
         val exceptedResult = Result.Success(mockPlantsList)
@@ -64,7 +64,7 @@ class HomeViewModelTest : BaseTest() {
     }
 
     @Test
-    fun fetchBreedsList_fail_case() = runTest {
+    fun fetchPlantsList_fail_case() = runTest {
 
         val exceptedResult = Result.Fail("Fail")
 
