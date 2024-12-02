@@ -76,7 +76,7 @@ fun DetailsText(
                 )
                 Spacer(
                     modifier = Modifier
-                        .width(dimensionResource(R.dimen.small_padding))
+                        .width(dimensionResource(R.dimen.default_padding))
 
                 )
                 Text(

@@ -1,5 +1,7 @@
 package com.bassem.demo_plants.presentation.ui.details
 
+import android.content.Intent
+import android.net.Uri
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -9,7 +11,9 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.currentCompositionLocalContext
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
@@ -18,6 +22,8 @@ import com.bassem.demo_plants.data.models.Data
 import com.bassem.demo_plants.presentation.ui.home.PlantName
 import com.bassem.demo_plants.presentation.ui.shared.PlantImage
 import com.bassem.demo_plants.utils.getFormattedIndex
+import com.bassem.demo_plants.utils.getMoreInfoUrl
+import com.bassem.demo_plants.utils.openUrl
 
 @Preview
 @Composable
@@ -36,7 +42,8 @@ fun DetailsScreen(
             image = image_url,
             family = family,
             formattedIndex = plant.getFormattedIndex(),
-            author = author
+            author = author,
+            infoUrl = plant.getMoreInfoUrl()
         )
     }
 
@@ -50,9 +57,11 @@ fun DetailsCompose(
     family: String,
     formattedIndex: String,
     author: String,
+    infoUrl: String,
     modifier: Modifier = Modifier,
 ) {
     val scrollState = rememberScrollState()
+    val context = LocalContext.current
     Column(
         modifier = modifier
             .padding(dimensionResource(R.dimen.default_padding))
@@ -71,8 +80,8 @@ fun DetailsCompose(
         DetailsText(stringResource(R.string.family), family)
         DetailsText(stringResource(R.string.index), formattedIndex)
         DetailsText(stringResource(R.string.author), author)
-        Text(text = stringResource(R.string.more_details), modifier = modifier.clickable {
-
+        MoreDetailsButton(onClick = {
+            context.openUrl(infoUrl)
         })
 
 
