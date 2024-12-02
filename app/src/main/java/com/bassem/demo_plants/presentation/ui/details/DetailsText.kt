@@ -32,7 +32,7 @@ import com.bassem.demo_plants.R
 @Preview
 @Composable
 private fun DetailsTextPreview() {
-DetailsText("rate","good")
+    DetailsText("rate", "good")
 
 }
 
@@ -51,7 +51,7 @@ fun DetailsText(
         shape = RoundedCornerShape(dimensionResource(R.dimen.card_corner_radius)),
         shadowElevation = dimensionResource(R.dimen.small_padding)
     ) {
-        Column (
+        Column(
             modifier = Modifier.padding(dimensionResource(R.dimen.small_padding)),
             horizontalAlignment = Alignment.Start
         ) {
@@ -59,7 +59,9 @@ fun DetailsText(
                 Icon(
                     imageVector = Icons.Default.Info,
                     contentDescription = stringResource(R.string.icon),
-                    modifier = Modifier.size(dimensionResource(R.dimen.icon_size)).align(Alignment.CenterVertically),
+                    modifier = Modifier
+                        .size(dimensionResource(R.dimen.icon_size))
+                        .align(Alignment.CenterVertically),
                     tint = MaterialTheme.colorScheme.primary
                 )
                 Spacer(modifier = Modifier.width(dimensionResource(R.dimen.small_padding)))
@@ -69,12 +71,17 @@ fun DetailsText(
                     style = MaterialTheme.typography.titleMedium,
                     color = MaterialTheme.colorScheme.primary,
                     maxLines = 1,
-                    overflow = TextOverflow.Ellipsis
+                    overflow = TextOverflow.Ellipsis,
+                    modifier = modifier.align(Alignment.CenterVertically)
                 )
-                Spacer(modifier = Modifier.width(dimensionResource(R.dimen.small_padding)))
+                Spacer(
+                    modifier = Modifier
+                        .width(dimensionResource(R.dimen.small_padding))
+
+                )
                 Text(
                     text = text,
-                    style =  MaterialTheme.typography.bodyLarge,
+                    style = MaterialTheme.typography.bodyLarge,
                     color = MaterialTheme.colorScheme.onBackground,
                     maxLines = 2,
                     overflow = TextOverflow.Ellipsis
