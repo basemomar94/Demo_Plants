@@ -18,11 +18,11 @@ class HomeViewModel @Inject constructor(private val useCase: FetchPlantsUseCase)
     val plantsList: Flow<Result<Any?>> get() = _plantsList.filterNotNull()
 
     init {
-        fetchProperties()
+        fetchPlants()
     }
 
     @VisibleForTesting
-    fun fetchProperties() = viewModelScope.launch {
+    fun fetchPlants() = viewModelScope.launch {
         useCase().collect { result ->
             _plantsList.value = result
         }
