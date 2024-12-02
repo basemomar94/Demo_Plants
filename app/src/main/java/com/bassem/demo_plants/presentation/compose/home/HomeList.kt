@@ -1,4 +1,4 @@
-package com.bassem.demo_plants.presentation.ui.home
+package com.bassem.demo_plants.presentation.compose.home
 
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding

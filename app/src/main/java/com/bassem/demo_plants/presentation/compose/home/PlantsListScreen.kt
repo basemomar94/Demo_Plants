@@ -1,4 +1,4 @@
-package com.bassem.demo_plants.presentation.ui.home
+package com.bassem.demo_plants.presentation.compose.home
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -9,8 +9,8 @@ import androidx.compose.ui.Modifier
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.bassem.demo_plants.data.models.Data
 import com.bassem.demo_plants.data.models.Result
-import com.bassem.demo_plants.presentation.ui.shared.ErrorTextCompose
-import com.bassem.demo_plants.presentation.ui.shared.LoadingIndicator
+import com.bassem.demo_plants.presentation.compose.shared.ErrorTextCompose
+import com.bassem.demo_plants.presentation.compose.shared.LoadingIndicator
 import com.bassem.demo_plants.presentation.viewmodels.HomeViewModel
 import com.bassem.demo_plants.utils.Logger
 

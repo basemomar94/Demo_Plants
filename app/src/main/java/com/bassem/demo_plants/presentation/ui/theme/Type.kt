@@ -1,4 +1,4 @@
-package com.bassem.demo_plants.ui.theme
+package com.bassem.demo_plants.presentation.ui.theme
 
 import androidx.compose.material3.Typography
 import androidx.compose.ui.text.TextStyle

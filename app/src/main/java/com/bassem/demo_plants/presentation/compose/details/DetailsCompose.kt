@@ -1,4 +1,4 @@
-package com.bassem.demo_plants.presentation.ui.details
+package com.bassem.demo_plants.presentation.compose.details
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -14,8 +14,8 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import com.bassem.demo_plants.R
 import com.bassem.demo_plants.data.models.Data
-import com.bassem.demo_plants.presentation.ui.home.PlantName
-import com.bassem.demo_plants.presentation.ui.shared.PlantImage
+import com.bassem.demo_plants.presentation.compose.home.PlantName
+import com.bassem.demo_plants.presentation.compose.shared.PlantImage
 import com.bassem.demo_plants.utils.getFormattedIndex
 import com.bassem.demo_plants.utils.getMoreInfoUrl
 import com.bassem.demo_plants.utils.openUrl

@@ -4,7 +4,6 @@ import android.content.Context
 import androidx.annotation.VisibleForTesting
 import com.bassem.demo_plants.R
 import com.bassem.demo_plants.data.local.AppsDao
-import com.bassem.demo_plants.data.models.Data
 import com.bassem.demo_plants.data.models.Result
 import com.bassem.demo_plants.data.remote.ApiService
 import com.bassem.demo_plants.data.remote.TOKEN

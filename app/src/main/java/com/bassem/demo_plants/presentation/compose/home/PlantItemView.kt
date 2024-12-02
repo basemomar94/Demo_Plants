@@ -1,4 +1,4 @@
-package com.bassem.demo_plants.presentation.ui.home
+package com.bassem.demo_plants.presentation.compose.home
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -16,8 +16,8 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import com.bassem.demo_plants.R
 import com.bassem.demo_plants.data.models.Data
-import com.bassem.demo_plants.presentation.ui.details.DetailsText
-import com.bassem.demo_plants.presentation.ui.shared.PlantImage
+import com.bassem.demo_plants.presentation.compose.details.DetailsText
+import com.bassem.demo_plants.presentation.compose.shared.PlantImage
 import com.bassem.demo_plants.utils.getYear
 
 

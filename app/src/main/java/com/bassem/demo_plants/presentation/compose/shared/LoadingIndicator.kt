@@ -1,4 +1,4 @@
-package com.bassem.demo_plants.presentation.ui.shared
+package com.bassem.demo_plants.presentation.compose.shared
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize

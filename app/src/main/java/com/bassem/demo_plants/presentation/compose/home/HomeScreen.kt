@@ -1,4 +1,4 @@
-package com.bassem.demo_plants.presentation.ui.home
+package com.bassem.demo_plants.presentation.compose.home
 
 import android.app.Activity
 import androidx.compose.foundation.layout.padding
@@ -14,8 +14,8 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import com.bassem.demo_plants.R
 import com.bassem.demo_plants.data.models.Data
-import com.bassem.demo_plants.presentation.ui.details.DetailsScreen
-import com.bassem.demo_plants.presentation.ui.shared.AppBar
+import com.bassem.demo_plants.presentation.compose.details.DetailsScreen
+import com.bassem.demo_plants.presentation.compose.shared.AppBar
 
 @OptIn(ExperimentalMaterial3AdaptiveApi::class)
 @Composable

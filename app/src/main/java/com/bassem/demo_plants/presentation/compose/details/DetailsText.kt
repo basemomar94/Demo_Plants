@@ -1,4 +1,4 @@
-package com.bassem.demo_plants.presentation.ui.details
+package com.bassem.demo_plants.presentation.compose.details
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row

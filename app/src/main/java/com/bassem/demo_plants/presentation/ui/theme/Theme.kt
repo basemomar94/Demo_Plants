@@ -1,4 +1,4 @@
-package com.bassem.demo_plants.ui.theme
+package com.bassem.demo_plants.presentation.ui.theme
 
 import android.app.Activity
 import android.os.Build

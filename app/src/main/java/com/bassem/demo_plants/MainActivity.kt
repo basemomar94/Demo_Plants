@@ -8,8 +8,8 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.ui.Modifier
-import com.bassem.demo_plants.presentation.ui.home.HomeScreen
-import com.bassem.demo_plants.ui.theme.Demo_PlantsTheme
+import com.bassem.demo_plants.presentation.compose.home.HomeScreen
+import com.bassem.demo_plants.presentation.ui.theme.Demo_PlantsTheme
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

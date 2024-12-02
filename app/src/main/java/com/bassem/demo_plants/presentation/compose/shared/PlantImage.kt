@@ -1,4 +1,4 @@
-package com.bassem.demo_plants.presentation.ui.shared
+package com.bassem.demo_plants.presentation.compose.shared
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
